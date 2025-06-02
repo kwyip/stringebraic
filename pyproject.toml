@@ -5,9 +5,9 @@ requires = ["setuptools>=75.3.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bib_optimizer"
-version = "0.3.6"
-description = "Clean and optimize bib file."
+name = "stringebraic"
+version = "0.0.1"
+description = "String-based Pauli algebraic manipulations"
 authors = [
   { name="Ka Wa Yip", email="yipkawa@gmail.com" },
 ]
@@ -26,21 +26,21 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13"
 ]
-keywords = ["latex", "bib", "bibliography"]
+keywords = ["Pauli", "quantum", "inner product"]
 
 [project.urls]
-Homepage = "https://github.com/kwyip/bib_optimizer"
-Issues = "https://github.com/kwyip/bib_optimizer/issues"
+Homepage = "https://github.com/kwyip/stringebraic"
+Issues = "https://github.com/kwyip/stringebraic/issues"
 
 [project.optional-dependencies]
 build = ["build", "twine"]
 dev   = ["black", "bumpver", "isort", "mypy", "pytest"]
 
 [project.scripts]
-bibopt = "bib_optimizer.__main__:main"
+bibopt = "stringebraic.__main__:main"
 
 [tool.bumpver]
-current_version = "0.3.6"
+current_version = "0.0.1"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message  = "bump version {old_version} -> {new_version}"
 commit          = true
@@ -52,8 +52,8 @@ push            = false
     'current_version = "{version}"',
     'version = "{version}"',
 ]
-"src/bib_optimizer/__init__.py" = ["{version}"]
-"src/bib_optimizer/__main__.py" = ["- bib_optimizer v{version}"]
+"src/stringebraic/__init__.py" = ["{version}"]
+"src/stringebraic/__main__.py" = ["- stringebraic v{version}"]
 
 [tool.isort]
 profile                   = "black"
