@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LaTex Bibliography Optimizer</title>
+  <title>String-based Pauli algebraic manipulations</title>
   <base href="./" target="_blank">
 </head>
 
@@ -26,49 +26,49 @@
         <tr>
           <th scope="row"></th>
           <td>
-            <a href="https://github.com/kwyip/bib_optimizer/blob/main/LICENSE">
+            <a href="https://github.com/kwyip/stringebraic/blob/main/LICENSE">
               <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="" />
             </a>
           </td>
           <td>
-            <a href="https://pypi.org/project/bib-optimizer/">
+            <a href="https://pypi.org/project/stringebraic/">
               <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/bib-optimizer" />
             </a>
           </td>
           <td>
-            <a href="https://pypi.org/project/bib-optimizer">
+            <a href="https://pypi.org/project/stringebraic">
               <img alt="Static Badge" src="https://img.shields.io/badge/CalVer-2025.0416-ff5733" />
             </a>
           </td>
-          <td><a href="https://pypi.org/project/bib-optimizer/#files">
+          <td><a href="https://pypi.org/project/stringebraic/#files">
             <img alt="Static Badge" src="https://img.shields.io/badge/PyPI-wheels-d8d805">
             </a>
           </td>
           <td>
-            <a href="https://pepy.tech/project/bib_optimizer">
-              <img src="https://pepy.tech/badge/bib_optimizer/month" alt="" />
+            <a href="https://pepy.tech/project/stringebraic">
+              <img src="https://pepy.tech/badge/stringebraic/month" alt="" />
             </a>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <h1 id="bib-optimizer">
-      <a href="https://bibopt.github.io/">
-        bib-optimizer
+    <h1 id="stringebraic">
+      <a href="https://stringebraic.github.io/">
+        stringebraic
       </a>
     </h1>
   </header>
   <header>
-    <p>Oh, sure, because who doesn&#39;t love manually cleaning up messy <code>.bib</code> files?
-      <code>bib_optimizer.py</code> heroically steps in to remove those lazy, <em>unused</em> citations and
+    <p> love manually cleaning up messy <code>.bib</code> files?
+      <code>stringebraic.py</code> heroically steps in to remove those lazy, <em>unused</em> citations and
       <em>reorder</em> the survivors exactly as they appear in the <code>.tex</code> file—because, clearly, chaos is
       the
       default setting for bibliographies.
     </p>
   </header>
   <main>
-    <p>In layman&#39;s terms, it automates bibliography management by:</p>
+    <p>In layman&#39;s terms, it automates Pauli algebra management by:</p>
     <ol>
       <li>removing unused citations,</li>
       <li>reordering the remaining ones to match their order of appearance in the <code>.tex</code> file.</li>
@@ -76,13 +76,15 @@
 
     <p><strong>Input Files:</strong></p>
     <ul>
-      <li><code>main.tex</code> – The LaTeX source file.</li>
-      <li><code>ref.bib</code> – The original bibliography file. </li>
+      <li><code>input_string_list.pkl</code> – The LaTeX source file.</li>
+      <li><code>input_string_coeff_list.pkl</code> – The original Pauli algebra file. </li>
+      <li><code>pauli_matrix_list.pkl</code> – The original Pauli algebra file. </li>
+      <li><code>pauli_coeff_list.pkl</code> – The original Pauli algebra file. </li>
     </ul>
     <p>These input files will <strong>remain unchanged</strong>.</p>
-    <p><strong>Output File:</strong></p>
+    <p><strong>Output:</strong></p>
     <ul>
-      <li><code>ref_opt.bib</code> – A placeholder filename for the newly generated, cleaned, and ordered bibliography file.</li>
+      <li><code>The inner product value</code> – A scalar for what the inner product (e.g., expected energy) is.</li>
     </ul>
   </main>
   <hr>
@@ -93,11 +95,11 @@
   <br />
   <br />
   <div>
-    &nbsp;&nbsp;&nbsp;&nbsp;<code>pip install bib_optimizer</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;<code>pip install stringebraic</code>
   </div>
   <i>or</i>
   <div>
-    &nbsp;&nbsp;&nbsp;&nbsp;<code>python -m pip install bib_optimizer</code>
+    &nbsp;&nbsp;&nbsp;&nbsp;<code>python -m pip install stringebraic</code>
   </div>
   <br />
 
@@ -106,7 +108,7 @@
   </footnote>
   <hr>
   <footnote>
-    <h3 id="steps-to-clean-your-bibliography">Steps to Clean Your Bibliography</h3>
+    <h3 id="steps-to-clean-your-pauli-algebra">Steps to Clean Your Pauli algebra</h3>
     <ol>
       <li><strong>Prepare the input files (e.g., by downloading them from Overleaf)</strong>.
       </li>
@@ -119,7 +121,7 @@
         </div>
         <br />
       </li>
-      <li><strong>Use the Cleaned Bibliography</strong><br />
+      <li><strong>Use the Cleaned Pauli Algebra</strong><br />
         Replace <code>ref.bib</code> with
         <code>ref_opt.bib</code> in
         your LaTeX project.
@@ -130,29 +132,29 @@
     You may test the installation using the sample input files (<code>sample_main.tex</code> and
     <code>sample_ref.bib</code>) located in the test folder.
 
-    <figure>
+    <!-- <figure>
       <img src="sample_main_shot.png" alt="sample_main_shot" height="199"/>
       &nbsp;
       <img src="sample_ref_shot.png" alt="sample_ref_shot" height="199" />
       <figcaption>
         <i><code>sample_main.tex</code> and <code>sample_ref.bib</code></i>
       </figcaption>
-    </figure>
+    </figure> -->
 
-    <figure>
+    <!-- <figure>
       <img src="sample_ref_opt_shot.png" alt="sample_ref_opt_shot" height="199" />
       <figcaption>
         <i>A sample <code>ref_opt.bib</code> after running 
           <code>bibopt sample_main.tex sample_ref.bib ref_opt.bib</code></i>
       </figcaption> 
-    </figure>
+    </figure> -->
 
 
     <marquee>
       <summary>
         <p>
           &hearts; Lastly executed on Python <code>3.10</code>
-          on 2025-04-16.
+          on 2025-06-05.
         </p>
       </summary>
     </marquee>
