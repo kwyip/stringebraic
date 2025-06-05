@@ -1,2 +1,2 @@
 [console_scripts]
-bibopt = stringebraic.__main__:main
+stringebraic = stringebraic.__main__:main

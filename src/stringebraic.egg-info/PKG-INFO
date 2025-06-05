@@ -28,7 +28,6 @@ License: MIT License
 Project-URL: Homepage, https://github.com/kwyip/stringebraic
 Project-URL: Issues, https://github.com/kwyip/stringebraic/issues
 Keywords: Pauli,quantum,inner product
-Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.8
