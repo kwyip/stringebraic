@@ -1,6 +1,5 @@
   <figure>
     <img src="https://github.com/kwyip/stringebraic/blob/main/logo.png?raw=True" alt="logo" height="143" />
-    <!-- <figcaption>An elephant at sunset</figcaption> -->
   </figure>
 
 [![](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/kwyip/stringebraic/blob/main/LICENSE)
@@ -12,23 +11,24 @@
 [stringebraic](https://stringebraic.github.io/)
 ===============================================
 
-love manually cleaning up messy `.bib` files? `stringebraic.py` heroically steps in to remove those lazy, _unused_ citations and _reorder_ the survivors exactly as they appear in the `.tex` file—because, clearly, chaos is the default setting for bibliographies.
+Stringebraic is a library of methods for representing a Hamiltonian (i.e., a matrix) as a sum of Pauli *string*s and a quantum state (i.e., a vector) as a sum of *bitstring*s. This perspective allows for a variety of operations using these *string*s, such as matrix-vector multiplication, inner products, and other algebraic manipulations.  
+🐦: Why take this approach?  
+🐧: Because the computational complexity of these operations typically grows exponentially with the number of qubits—or, equivalently, with the size of the matrix.
 
-In layman's terms, it automates Pauli algebra management by:
+In layman&#39;s terms, it automates Pauli algebra by:
 
-1.  removing unused citations,
-2.  reordering the remaining ones to match their order of appearance in the `.tex` file.
+1.  removing the concept of matrix and vector size,
+2.  performing the matrix multiplication with string-based rules.
 
-**Input Files:**
+#### Input Files:
 
-*   `input_string_list.pkl` – The LaTeX source file.
-*   `input_string_coeff_list.pkl` – The original Pauli algebra file.
-*   `pauli_matrix_list.pkl` – The original Pauli algebra file.
-*   `pauli_coeff_list.pkl` – The original Pauli algebra file.
+*   `input_string_list.pkl` – A [pickle](https://docs.python.org/3/library/pickle.html)
+        file containing a list of bitstrings that compose the quantum state.</li>
+*   `input_string_coeff_list.pkl` – A pickle file containing a list of coefficients that compose the quantum state.
+*   `pauli_matrix_list.pkl` – A pickle file containing a list of Pauli strings that compose the Hamiltonian.
+*   `pauli_coeff_list.pkl` – A pickle file containing a list of Pauli coefficients that compose the Hamiltonian. 
 
-These input files will **remain unchanged**.
-
-**Output:**
+#### Output:
 
 *   `The inner product value` – A scalar for what the inner product (e.g., expected energy) is.
 
@@ -51,25 +51,22 @@ _🐍 This requires Python 3.8 or newer versions_
 
 * * *
 
-### Steps to Clean Your Pauli algebra
+### Steps to fast compute the inner product energy using Pauli *string* algebra
 
-1.  **Prepare the input files (e.g., by downloading them from Overleaf)**.
-2.  **Run the command to generate a new `.bib` file (for example, you may name it `ref_opt.bib`)**:  
+1.  **Prepare the input files (i.e., converting the quantum Hamiltonian and quantum state into lists of strings and coefficients, as specified in the above [section](#input-files))**.
+2.  **Run the command to generate a inner product (i.e., a scalar)**:  
       
     
-           `bibopt main.tex ref.bib ref_opt.bib`
-    
-      
-    
-3.  **Use the Cleaned Pauli Algebra**  
-    Replace `ref.bib` with `ref_opt.bib` in your LaTeX project.
+           `stringebraic input_string_list.pkl input_string_coeff_list.pkl pauli_matrix_list.pkl pauli_coeff_list.pkl`
+
 
 * * *
 
 ### Test
 
-You may test the installation using the sample input files (`sample_main.tex` and `sample_ref.bib`) located in the test folder.
+You may test the installation using the sample input files (`input_string_list.pkl` and
+    `input_string_coeff_list.pkl`, `pauli_matrix_list.pkl` and `pauli_coeff_list.pkl`) located in the test folder.
 
 ---
 
-♥ Lastly executed on Python `3.10` on 2025-04-16.
+♥ Lastly executed on Python `3.10` on 2025-06-05.

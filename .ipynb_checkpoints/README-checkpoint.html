@@ -41,7 +41,7 @@
             </a>
           </td>
           <td><a href="https://pypi.org/project/stringebraic/#files">
-              <img alt="Static Badge" src="https://img.shields.io/badge/PyPI-wheels-d8d805">
+            <img alt="Static Badge" src="https://img.shields.io/badge/PyPI-wheels-d8d805">
             </a>
           </td>
           <td>
@@ -60,38 +60,28 @@
     </h1>
   </header>
   <header>
-    <p>
-      Stringebraic is a library of methods for representing a Hamiltonian (i.e., a matrix) as a sum of Pauli
-      <em>string</em>s and a quantum state (i.e., a vector)
-      as a sum of <em>bitstring</em>s.
-      This perspective allows for a variety of operations using these <q><em>string</em>s</q>, such as matrix-vector
-      multiplication,
-      inner products, and other algebraic manipulations. </br>
-      &#128038: Why take this approach?</br>
-      &#128039: Because the computational complexity of these operations typically grows exponentially with the number
-      of
-      qubits—or, equivalently, with the size of the matrix.
+    <p> love manually cleaning up messy <code>.bib</code> files?
+      <code>stringebraic.py</code> heroically steps in to remove those lazy, <em>unused</em> citations and
+      <em>reorder</em> the survivors exactly as they appear in the <code>.tex</code> file—because, clearly, chaos is
+      the
+      default setting for bibliographies.
     </p>
   </header>
   <main>
-    <p>In layman&#39;s terms, it automates Pauli algebra by:</p>
+    <p>In layman&#39;s terms, it automates Pauli algebra management by:</p>
     <ol>
-      <li>removing the concept of matrix and vector size,</li>
-      <li>performing the matrix multiplication with string-based rules.</li>
+      <li>removing unused citations,</li>
+      <li>reordering the remaining ones to match their order of appearance in the <code>.tex</code> file.</li>
     </ol>
 
-    <p id="input" name="input"><strong>Input Files:</strong></p>
+    <p><strong>Input Files:</strong></p>
     <ul>
-      <li><code>input_string_list.pkl</code> – A <a href="https://docs.python.org/3/library/pickle.html">pickle</a>
-        file containing a list of bitstrings that compose the quantum state.</li>
-      <li><code>input_string_coeff_list.pkl</code> –
-        A pickle file containing a list of coefficients that compose the quantum state. </li>
-      <li><code>pauli_matrix_list.pkl</code> –
-        A pickle file containing a list of Pauli strings that compose the Hamiltonian. </li>
-      <li><code>pauli_coeff_list.pkl</code> –
-        A pickle file containing a list of Pauli coefficients that compose the Hamiltonian. </li>
+      <li><code>input_string_list.pkl</code> – The LaTeX source file.</li>
+      <li><code>input_string_coeff_list.pkl</code> – The original Pauli algebra file. </li>
+      <li><code>pauli_matrix_list.pkl</code> – The original Pauli algebra file. </li>
+      <li><code>pauli_coeff_list.pkl</code> – The original Pauli algebra file. </li>
     </ul>
-    <!-- <p>These input files will <strong>remain unchanged</strong>.</p> -->
+    <p>These input files will <strong>remain unchanged</strong>.</p>
     <p><strong>Output:</strong></p>
     <ul>
       <li><code>The inner product value</code> – A scalar for what the inner product (e.g., expected energy) is.</li>
@@ -107,48 +97,47 @@
   <div>
     &nbsp;&nbsp;&nbsp;&nbsp;<code>pip install stringebraic</code>
   </div>
-  <em>or</em>
+  <i>or</i>
   <div>
     &nbsp;&nbsp;&nbsp;&nbsp;<code>python -m pip install stringebraic</code>
   </div>
   <br />
 
   <footnote>
-    <em><small>&#128013 This requires Python 3.8 or newer versions</small></em>
+    <i><small>&#128013 This requires Python 3.8 or newer versions</small></i>
   </footnote>
   <hr>
   <footnote>
-    <h3 id="steps-to-clean-your-pauli-algebra">Steps to fast compute the inner product energy
-      using Pauli <em>string</em> algebra</h3>
+    <h3 id="steps-to-clean-your-pauli-algebra">Steps to Clean Your Pauli algebra</h3>
     <ol>
-      <li><strong>Prepare the input files (i.e., converting the quantum Hamiltonian and quantum state
-          into lists of strings and coefficients, as specified in the above <a href="#input">section</a>)</strong>.
+      <li><strong>Prepare the input files (e.g., by downloading them from Overleaf)</strong>.
       </li>
-      <li><strong>Run the command to generate a inner product (i.e., a scalar)</strong>:
+      <li><strong>Run the command to generate a new <code>.bib</code> file (for example, you may name it
+          <code>ref_opt.bib</code>)</strong>:
         <br />
         <br />
         <div>
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<code>stringebraic input_string_list.pkl input_string_coeff_list.pkl pauli_matrix_list.pkl pauli_coeff_list.pkl</code>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<code>bibopt main.tex ref.bib ref_opt.bib</code>
         </div>
         <br />
       </li>
-      <!-- <li><strong>Use the Cleaned Pauli Algebra</strong><br />
+      <li><strong>Use the Cleaned Pauli Algebra</strong><br />
         Replace <code>ref.bib</code> with
         <code>ref_opt.bib</code> in
         your LaTeX project.
-      </li> -->
+      </li>
     </ol>
     <hr>
     <h3 id="test">Test</h3>
-    You may test the installation using the sample input files (<code>input_string_list.pkl</code> and
-    <code>input_string_coeff_list.pkl</code>, <code>pauli_matrix_list.pkl</code> and <code>pauli_coeff_list.pkl</code>) located in the test folder.
+    You may test the installation using the sample input files (<code>sample_main.tex</code> and
+    <code>sample_ref.bib</code>) located in the test folder.
 
     <!-- <figure>
       <img src="sample_main_shot.png" alt="sample_main_shot" height="199"/>
       &nbsp;
       <img src="sample_ref_shot.png" alt="sample_ref_shot" height="199" />
       <figcaption>
-        <i><code>sample_main.tex</code> and <code>sample_ref.bib</code></em>
+        <i><code>sample_main.tex</code> and <code>sample_ref.bib</code></i>
       </figcaption>
     </figure> -->
 
@@ -156,7 +145,7 @@
       <img src="sample_ref_opt_shot.png" alt="sample_ref_opt_shot" height="199" />
       <figcaption>
         <i>A sample <code>ref_opt.bib</code> after running 
-          <code>bibopt sample_main.tex sample_ref.bib ref_opt.bib</code></em>
+          <code>bibopt sample_main.tex sample_ref.bib ref_opt.bib</code></i>
       </figcaption> 
     </figure> -->
 
