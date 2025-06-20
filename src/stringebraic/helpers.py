@@ -9,7 +9,7 @@ def string_inner_product(input_string_list, input_string_coeff_list, pauli_matri
         for pauli_matrix, pauli_coeff in zip(pauli_matrix_list, pauli_coeff_list):
             output_string = ''
             residue = pauli_coeff*input_string_coeff
-            for i in zip(pauli_matrix[::-1], input_string):    
+            for i in zip(pauli_matrix[::-1], input_string):    #reverse Pauli string due to different ordering between IBM and D-Wave
                 if i == ('I', '0'):
                     output_string += '0'
                 elif i == ('I', '1'):
