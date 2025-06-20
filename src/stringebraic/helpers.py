@@ -30,8 +30,8 @@ def string_inner_product(input_string_list, input_string_coeff_list, pauli_matri
                     output_string += '1'
                     residue *= -1
 
-    output_string_list.append(output_string)
-    residue_list.append(residue)
+            output_string_list.append(output_string)
+            residue_list.append(residue)
 
     df_psi = pd.DataFrame({'sample_s': input_string_list, 'prob_amp': input_string_coeff_list})
     df_psi_dagger = df_psi.copy()
