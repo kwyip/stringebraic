@@ -76,17 +76,14 @@ In layman&#39;s terms, it automates Pauli algebra by:
 
 #### Input Files:
 
-*   `input_string_list.pkl` – A [pickle](https://docs.python.org/3/library/pickle.html)
-        file containing a list of bitstrings that compose the quantum state.</li>
-*   `input_string_coeff_list.pkl` – A pickle file containing a list of coefficients that compose the quantum state.
-*   `pauli_matrix_list.pkl` – A pickle file containing a list of Pauli strings that compose the Hamiltonian.
-*   `pauli_coeff_list.pkl` – A pickle file containing a list of Pauli coefficients that compose the Hamiltonian. 
+*   `input_string_list` – A list of bitstrings that compose the quantum state.</li>
+*   `input_string_coeff_list` – A list of coefficients that compose the quantum state.
+*   `pauli_matrix_list` – A list of Pauli strings that compose the Hamiltonian.
+*   `pauli_coeff_list` – A list of Pauli coefficients that compose the Hamiltonian. 
 
 #### Output:
 
 *   `The inner product value` – A scalar for what the inner product (e.g., expected energy) is.
-
-* * *
 
 Installation
 ------------
@@ -110,16 +107,24 @@ _🐍 This requires Python 3.8 or newer versions_
 1.  **Prepare the input files (i.e., converting the quantum Hamiltonian and quantum state into lists of strings and coefficients, as specified in the above [section](#input-files))**.
 2.  **Run the command to generate a inner product (i.e., a scalar)**:  
       
-    
-           `stringebraic input_string_list.pkl input_string_coeff_list.pkl pauli_matrix_list.pkl pauli_coeff_list.pkl`
+    ```
+    import stringebraic
+
+    inner_product = stringebraic.helpers.string_inner_product(input_string_list, input_string_coeff_list, pauli_matrix_list, pauli_coeff_list)
+    ```
 
 
 * * *
 
 ### Test
 
-You may test the installation using the sample input files (`input_string_list.pkl` and
+You may test the installation using the sample input files ( [pickle](https://docs.python.org/3/library/pickle.html) files each storing the lists: `input_string_list.pkl` and
     `input_string_coeff_list.pkl`, `pauli_matrix_list.pkl` and `pauli_coeff_list.pkl`) located in the test folder.
+
+
+Run the command on the terminal directly to print out the inner product (i.e., a scalar)
+
+`stringebraic input_string_list.pkl input_string_coeff_list.pkl pauli_matrix_list.pkl pauli_coeff_list.pkl`
 
 ---
 
