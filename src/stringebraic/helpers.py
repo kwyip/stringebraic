@@ -1,6 +1,48 @@
 import pandas as pd
 import numpy as np
 
+output_string_list = []
+residue_list = []
+
+def index(li, element):
+    return next((i for i, e in enumerate(li) if e == element), -1)
+
+def string_inner_product(input_string_list, input_string_coeff_list, pauli_matrix_list, pauli_coeff_list):
+    inner_product = 0
+    for input_string, input_string_coeff in zip(input_string_list, input_string_coeff_list):
+        for pauli_matrix, pauli_coeff in zip(pauli_matrix_list, pauli_coeff_list):
+            output_string = ''
+            residue = pauli_coeff*input_string_coeff
+            for i in zip(pauli_matrix, input_string):    
+                if i == ('I', '0'):
+                    output_string += '0'
+                elif i == ('I', '1'):
+                    output_string += '1'
+                elif i == ('X', '0'):
+                    output_string += '1'
+                elif i == ('X', '1'):
+                    output_string += '0'
+                elif i == ('Y', '0'):
+                    output_string += '1'
+                    residue *= 1j
+                elif i == ('Y', '1'):
+                    output_string += '0'
+                    residue *= -1j
+                elif i == ('Z', '0'):
+                    output_string += '0'
+                    residue *= 1
+                elif i == ('Z', '1'):
+                    output_string += '1'
+                    residue *= -1
+
+            if output_string in input_string_list:
+                mtch_idx = input_string_list.index(output_string)
+                inner_product += np.conjugate(input_string_coeff_list[mtch_idx])*residue
+
+    return inner_product.real
+
+
+'''
 def string_inner_product(input_string_list, input_string_coeff_list, pauli_matrix_list, pauli_coeff_list):
     #print("abcdefgihjk")
     output_string_list = []
@@ -9,7 +51,7 @@ def string_inner_product(input_string_list, input_string_coeff_list, pauli_matri
         for pauli_matrix, pauli_coeff in zip(pauli_matrix_list, pauli_coeff_list):
             output_string = ''
             residue = pauli_coeff*input_string_coeff
-            for i in zip(pauli_matrix[::-1], input_string):    #reverse Pauli string due to different ordering between IBM and D-Wave
+            for i in zip(pauli_matrix[::-1], input_string):    
                 if i == ('I', '0'):
                     output_string += '0'
                 elif i == ('I', '1'):
@@ -48,3 +90,4 @@ def string_inner_product(input_string_list, input_string_coeff_list, pauli_matri
     inner_product = (df_inner_product['prob_amp_left'] * df_inner_product['prob_amp_right']).sum().real
             
     return inner_product
+''''
