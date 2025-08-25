@@ -80,16 +80,15 @@
       <li>performing the matrix multiplication with string-based rules.</li>
     </ol>
 
-    <p id="input" name="input"><strong>Input Files:</strong></p>
+    <p id="input" name="input"><strong>Inputs:</strong></p>
     <ul>
-      <li><code>input_string_list.pkl</code> – A <a href="https://docs.python.org/3/library/pickle.html">pickle</a>
-        file containing a list of bitstrings that compose the quantum state.</li>
-      <li><code>input_string_coeff_list.pkl</code> –
-        A pickle file containing a list of coefficients that compose the quantum state. </li>
-      <li><code>pauli_matrix_list.pkl</code> –
-        A pickle file containing a list of Pauli strings that compose the Hamiltonian. </li>
-      <li><code>pauli_coeff_list.pkl</code> –
-        A pickle file containing a list of Pauli coefficients that compose the Hamiltonian. </li>
+      <li><code>input_string_list</code> – A list of bitstrings that compose the quantum state.</li>
+      <li><code>input_string_coeff_list</code> –
+        A list of coefficients that compose the quantum state. </li>
+      <li><code>pauli_matrix_list</code> –
+        A list of Pauli strings that compose the Hamiltonian. </li>
+      <li><code>pauli_coeff_list</code> –
+        A list of Pauli coefficients that compose the Hamiltonian. </li>
     </ul>
     <!-- <p>These input files will <strong>remain unchanged</strong>.</p> -->
     <p><strong>Output:</strong></p>
@@ -124,11 +123,14 @@
       <li><strong>Prepare the input files (i.e., converting the quantum Hamiltonian and quantum state
           into lists of strings and coefficients, as specified in the above <a href="#input">section</a>)</strong>.
       </li>
-      <li><strong>Run the command to generate a inner product (i.e., a scalar)</strong>:
+      <li><strong>You can run the following command to generate a inner product (i.e., a scalar)</strong>:
         <br />
         <br />
         <div>
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<code>stringebraic input_string_list.pkl input_string_coeff_list.pkl pauli_matrix_list.pkl pauli_coeff_list.pkl</code>
+          <code>import stringebraic</code>
+          <br />
+          <code>inner_product = stringebraic.helpers.string_inner_product(input_string_list, input_string_coeff_list, pauli_matrix_list, pauli_coeff_list)
+</code>
         </div>
         <br />
       </li>
@@ -140,9 +142,17 @@
     </ol>
     <hr>
     <h3 id="test">Test</h3>
-    You may test the installation using the sample input files (pickle files each storing the lists: <code>input_string_list.pkl</code> and
+    You may test the installation using the sample input files (<a href="https://docs.python.org/3/library/pickle.html">pickle</a> files each storing the lists: <code>input_string_list.pkl</code> and
     <code>input_string_coeff_list.pkl</code>, <code>pauli_matrix_list.pkl</code> and <code>pauli_coeff_list.pkl</code>) located in the test folder.
-
+    <br />
+    <br />
+    <strong>Run the command on the terminal directly to print out the inner product (i.e., a scalar)</strong>:
+        <br />
+        <br />
+        <div>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<code>stringebraic input_string_list.pkl input_string_coeff_list.pkl pauli_matrix_list.pkl pauli_coeff_list.pkl</code>
+        </div>
+        <br />
     <!-- <figure>
       <img src="sample_main_shot.png" alt="sample_main_shot" height="199"/>
       &nbsp;
